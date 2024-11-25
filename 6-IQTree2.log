@@ -1,0 +1,466 @@
+IQ-TREE multicore version 2.3.6 for MacOS ARM 64-bit built Jul 30 2024
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor, Heiko Schmidt,
+Dominik Schrempf, Michael Woodhams, Ly Trong Nhan, Thomas Wong
+
+Host:    LS-240394-EPS (SSE4.2, 18 GB RAM)
+Command: iqtree2 -s 5-All_Reads.Muscle_Alignment.fasta -alrt 1000 -bb 1000 --prefix 6-IQTree2
+Seed:    641737 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sun Nov 24 20:06:54 2024
+Kernel:  SSE2 - 1 threads (11 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 11 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading alignment file 5-All_Reads.Muscle_Alignment.fasta ... Fasta format detected
+Reading fasta file: done in 0.00399184 secs using 89.31% CPU
+Alignment most likely contains DNA/RNA sequences
+WARNING: 15 sites contain only gaps or ambiguous characters.
+Alignment has 199 sequences with 827 columns, 686 distinct patterns
+199 parsimony-informative, 192 singleton sites, 435 constant sites
+                                                Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.000229836 secs using 92.67% CPU
+   1  Sebastes_variegatus-OR641553.1_15142_14393        9.31%    passed     99.98%
+   2  4H1_766_25                                       10.28%    passed     98.83%
+   3  Sebastes_crameri-OR641512.1_15141_14392           9.31%    passed     99.19%
+   4  4F3_798_48                                        9.19%    passed     93.67%
+   5  4H4_799_49                                        9.31%    passed     99.52%
+   6  3C5_393_248                                      84.04%    passed     68.58%
+   7  Sebastes_brevispinis-OR641505.1_15141_14392       9.31%    passed     98.47%
+   8  4C7_799_49                                        9.19%    passed     99.75%
+   9  2E2_771_40                                       11.49%    passed     92.51%
+  10  Sebastes_jordani-NC_085188.1_15145_14396          9.31%    passed     84.07%
+  11  Sebastes_rosenblatti-NC_082792.1_15144_14395      9.31%    passed     96.06%
+  12  2G12_765_65                                      15.24%    passed     95.60%
+  13  3B4_776_133                                      22.37%    passed     98.01%
+  14  3G7_763_94                                       19.23%    passed     99.23%
+  15  Sebastes_eos-OP035269.2_15142_14393               9.31%    passed     98.50%
+  16  3B10_618_400                                     77.39%    passed     19.80%
+  17  4B2_763_24                                       10.52%    passed     83.29%
+  18  2E7_767_228                                      35.19%    passed     94.97%
+  19  4F5_767_30                                       10.76%    passed     98.76%
+  20  3B9_797_48                                        9.31%    passed     98.18%
+  21  Sebastes_proriger-OR641545.1_15143_14394          9.31%    passed     99.37%
+  22  3E11_781_47                                      11.37%    passed     88.15%
+  23  3F12_796_47                                       9.31%    passed     83.02%
+  24  4F12_771_33                                      10.76%    passed     93.73%
+  25  2H4_773_53                                       13.06%    passed     95.21%
+  26  4H5_770_31                                       10.64%    passed     98.67%
+  27  4B7_768_29                                       10.64%    passed     98.67%
+  28  Sebastes_borealis-MZ931268.1_144_1               82.59%    passed     83.13%
+  29  2H8_768_37                                       11.49%    passed     92.79%
+  30  Sebastes_serranoides-AF031498.1_758_9             9.31%    passed     95.74%
+  31  2G10_771_41                                      11.85%    passed     97.09%
+  32  4A8_804_54                                        9.19%    passed     99.99%
+  33  4A7_772_42                                       12.09%    passed     94.79%
+  34  4A2_798_49                                        9.31%    passed     98.18%
+  35  Sebastes_ensifer-MF573893.1_731_1                11.61%    passed     98.96%
+  36  4G12_770_31                                      10.52%    passed     99.55%
+  37  Sebastes_ciliatus-OR482540.1_15141_14392          9.31%    passed     99.82%
+  38  Sebastes_chlorostictus-MF573894.1_752_3           9.31%    passed     93.93%
+  39  5C6_800_50                                        9.19%    passed     99.97%
+  40  3F7_808_59                                        9.31%    passed     84.07%
+  41  Sebastes_semicinctus-MK858223.1_782_33            9.31%    passed     98.49%
+  42  Sebastes_macdonaldi-OP035284.1_15142_14393        9.31%    passed     98.97%
+  43  4H10_767_647                                     86.22%    passed     54.06%
+  44  3B5_766_95                                       18.74%    passed     77.50%
+  45  350_769_33                                       11.61%    passed     92.93%
+  46  2G2_760_20                                       10.52%    passed     99.27%
+  47  507_768_30                                       11.61%    passed     99.85%
+  48  Sebastes_mystinus-NC_082760.1_15143_14394         9.31%    passed     91.38%
+  49  4A11_765_45                                      16.69%    passed     87.20%
+  50  2E8_773_50                                       12.58%    passed     98.61%
+  51  4A10_801_51                                       9.19%    passed     97.57%
+  52  3B11_670_46                                      25.51%    passed     74.23%
+  53  Sebastes_paucispinis-OR641541.1_15143_14394       9.31%    passed     86.85%
+  54  2F3_771_191                                      30.23%    passed     82.25%
+  55  Sebastes_babcocki-NC_085187.1_15143_14394         9.31%    passed     89.90%
+  56  Sebastes_serriceps-EF446453.1_1_731              11.61%    passed     98.87%
+  57  3B7_779_48                                       11.49%    passed     93.30%
+  58  4D10_771_184                                     33.74%    passed     96.89%
+  59  3G12_766_49                                      13.18%    passed     95.06%
+  60  3A4_800_51                                        9.31%    passed     99.45%
+  61  Sebastes_rubrivinctus-NC_039777.1_15145_14396     9.31%    passed     98.36%
+  62  1E8_746_315                                      52.48%    passed     80.99%
+  63  4G3_771_34                                       10.76%    passed     95.96%
+  64  2G11_801_118                                     17.53%    passed     98.87%
+  65  4C6_768_22                                       10.04%    passed     97.92%
+  66  4B9_801_51                                        9.31%    passed     89.74%
+  67  4F10_772_39                                      11.25%    passed     98.86%
+  68  Sebastes_saxicola-OR641551.1_15144_14395          9.31%    passed     99.93%
+  69  3H12_768_34                                      11.12%    passed     99.12%
+  70  Sebastes_umbrosus-MF573899.1_739_7               11.37%    passed     95.17%
+  71  4H9_771_35                                       10.88%    passed     95.72%
+  72  351_765_32                                       11.37%    passed     98.20%
+  73  3B3_800_50                                        9.19%    passed     93.91%
+  74  2F8_764_103                                      19.95%    passed     95.05%
+  75  3A3_800_50                                        9.19%    passed     99.11%
+  76  4H3_768_42                                       12.94%    passed     94.77%
+  77  Sebastes_carnatus-EF446449.1_1_750                9.31%    passed     97.05%
+  78  3A8_757_173                                      34.46%    passed     42.02%
+  79  Sebastes_emphaeus-NC_082816.1_15142_14393         9.31%    passed     99.57%
+  80  Sebastes_melanops-OR482534.1_15143_14394          9.31%    passed     97.35%
+  81  2G6_767_29                                       10.64%    passed     98.31%
+  82  4G2_769_36                                       11.37%    passed     98.67%
+  83  4B12_798_59                                      10.52%    passed     95.47%
+  84  4G1_765_111                                      20.80%    passed     85.56%
+  85  Sebastes_aurora-OM140748.1_528_1                 36.15%    passed     57.47%
+  86  5A5_789_53                                       11.25%    passed     90.74%
+  87  Sebastes_rastrelliger-EF446469.1_1_750            9.31%    passed     98.59%
+  88  4A5_766_17                                       10.64%    passed     97.20%
+  89  3H6_747_237                                      43.05%    passed     76.82%
+  90  5C7_771_39                                       11.73%    passed     99.46%
+  91  2H3_767_41                                       12.21%    passed     94.92%
+  92  Sebastes_zacentrus-OR641554.1_15143_14394         9.31%    passed     99.98%
+  93  4A4_798_51                                        9.67%    passed     86.30%
+  94  4G5_769_30                                       10.52%    passed     98.23%
+  95  590_768_35                                       11.97%    passed     93.46%
+  96  Sebastes_entomelas-OR641520.1_15143_14394         9.31%    passed     95.53%
+  97  2H10_767_34                                      11.37%    passed     91.06%
+  98  5A3_303_152                                      83.43%    passed     70.06%
+  99  4C2_799_52                                        9.55%    passed     99.86%
+ 100  Sebastes_wilsoni-NC_082762.1_15142_14393          9.31%    passed     99.85%
+ 101  3A6_782_48                                       11.37%    passed     94.54%
+ 102  4E10_764_123                                     22.37%    passed     99.84%
+ 103  5C10_796_49                                       9.55%    passed     84.22%
+ 104  3G3_801_52                                        9.31%    passed     84.07%
+ 105  2H9_762_33                                       11.73%    passed     93.39%
+ 106  4B5_767_32                                       11.37%    passed     95.46%
+ 107  Sebastes_hopkinsi-EF446448.1_1_750                9.31%    passed     98.10%
+ 108  2G4_764_51                                       14.03%    passed     98.53%
+ 109  4C8_775_44                                       11.85%    passed     87.98%
+ 110  4B4_767_28                                       10.64%    passed     98.74%
+ 111  Sebastes_pinniger-OR641543.1_15141_14392          9.31%    passed     96.26%
+ 112  Sebastes_goodei-OR641527.1_15142_14393            9.31%    passed     99.84%
+ 113  3A11_818_96                                      13.54%    passed     83.07%
+ 114  152_796_46                                       10.76%    passed     87.47%
+ 115  3F9_800_51                                        9.31%    passed     84.07%
+ 116  1E10_570_330                                     76.30%    passed     99.33%
+ 117  4C5_763_24                                       10.52%    passed     99.06%
+ 118  4C4_766_27                                       10.64%    passed     98.67%
+ 119  4A12_770_52                                      13.78%    passed     99.74%
+ 120  4F9_771_32                                       10.64%    passed     97.24%
+ 121  2E4_759_365                                      58.89%    passed      8.62%
+ 122  Sebastes_levis-EF446488.1_1_750                   9.31%    passed     98.02%
+ 123  Sebastes_ruberrimus-NC_085186.1_15142_14393       9.31%    passed     98.50%
+ 124  1A9_770_215                                      32.77%    passed     80.25%
+ 125  Sebastes_nigrocinctus-NC_039778.1_15144_14395     9.31%    passed     98.35%
+ 126  5B1_789_51                                       10.64%    passed     98.42%
+ 127  4H7_768_26                                       10.76%    passed     98.57%
+ 128  2G8_765_48                                       13.30%    passed     96.13%
+ 129  Sebastes_chrysomelas-EF446475.1_1_750             9.31%    passed     97.05%
+ 130  4H11_772_121                                     25.51%    passed     54.04%
+ 131  5C2_680_241                                      48.85%    passed     76.47%
+ 132  2H1_765_31                                       11.37%    passed     91.06%
+ 133  3A12_779_129                                     21.28%    passed     86.04%
+ 134  150_766_32                                       11.97%    passed     86.19%
+ 135  1E3_796_53                                       10.16%    passed     97.83%
+ 136  3D10_764_72                                      16.81%    passed     97.47%
+ 137  Sebastes_atrovirens-AY582088.1_396_13            53.57%    passed     95.50%
+ 138  3F3_373_305                                      92.02%    passed     13.66%
+ 139  2G9_772_57                                       13.42%    passed     96.17%
+ 140  4F4_769_36                                       11.25%    passed     99.33%
+ 141  5B11_209_52                                      81.86%    passed     10.27%
+ 142  Sebastes_melanostomus-NC_082790.1_15148_14399     9.31%    passed     99.20%
+ 143  Sebastes_diploproa-OR641514.1_15144_14395         9.31%    passed     99.14%
+ 144  3F11_784_49                                      11.00%    passed     89.97%
+ 145  2G3_761_13                                        9.43%    passed     94.86%
+ 146  Sebastes_flavidus-OR641525.1_15145_14396          9.31%    passed     96.58%
+ 147  Sebastes_miniatus-NC_082765.1_15143_14394         9.31%    passed     99.34%
+ 148  3B2_803_55                                        9.43%    passed     96.03%
+ 149  Sebastes_helvomaculatus-OR641529.1_15143_14394    9.31%    passed     97.18%
+ 150  4B8_799_49                                        9.19%    passed     99.44%
+ 151  Sebastes_reedi-OR641547.1_15141_14392             9.31%    passed     99.44%
+ 152  4H6_777_79                                       17.29%    passed     90.39%
+ 153  4A9_770_50                                       14.51%    passed     94.87%
+ 154  5A8_801_52                                        9.31%    passed     94.76%
+ 155  502_798_52                                        9.92%    passed     99.15%
+ 156  3A7_760_48                                       13.91%    passed     81.40%
+ 157  Sebastes_melanostictus-NC_056778.1_15142_14393    9.31%    passed     96.67%
+ 158  Sebastes_ovalis-OP035099.2_15144_14395            9.31%    passed     99.72%
+ 159  352_765_46                                       13.06%    passed     97.94%
+ 160  2G1_763_94                                       18.98%    passed     99.65%
+ 161  2D12_772_49                                      12.82%    passed     91.71%
+ 162  1E11_755_135                                     25.03%    passed     92.63%
+ 163  637_769_37                                       11.85%    passed     97.37%
+ 164  Sebastes_auriculatus-NC_082772.1_15143_14394      9.31%    passed     94.84%
+ 165  Sebastes_maliger-OR641536.1_15141_14392           9.31%    passed     99.81%
+ 166  2F10_766_109                                     20.68%    passed     97.00%
+ 167  3E9_769_155                                      25.88%    passed     77.53%
+ 168  4G6_718_108                                      32.77%    passed     10.81%
+ 169  Sebastes_rufus-EF446472.1_1_750                   9.31%    passed     99.45%
+ 170  Sebastes_alutus-OR641502.1_15143_14394            9.31%    passed     99.85%
+ 171  4B1_767_26                                       10.28%    passed     98.40%
+ 172  600_766_30                                       12.09%    passed     97.83%
+ 173  Sebastes_caurinus-OR641510.1_15142_14393          9.31%    passed     99.27%
+ 174  Sebastes_lentiginosus-AF031509.1_758_9            9.31%    passed     92.56%
+ 175  Sebastes_aleutianus-OR641500.1_15141_14392        9.31%    passed     96.67%
+ 176  3F10_750_93                                      20.68%    passed     98.98%
+ 177  Sebastes_constellatus-NC_082758.1_15143_14394     9.31%    passed     99.79%
+ 178  4H2_771_48                                       12.45%    passed     87.38%
+ 179  4B3_766_27                                       10.64%    passed     98.71%
+ 180  2H2_770_42                                       11.85%    passed     94.77%
+ 181  3B6_761_58                                       16.08%    passed     91.56%
+ 182  4A6_764_194                                      32.04%    passed     94.19%
+ 183  505_802_55                                       10.04%    passed     95.84%
+ 184  504_804_54                                        9.67%    passed     98.40%
+ 185  2F7_756_77                                       18.14%    passed     99.20%
+ 186  506_803_54                                        9.55%    passed     99.29%
+ 187  2F12_765_58                                      14.39%    passed     95.96%
+ 188  2H5_758_84                                       18.38%    passed     97.26%
+ 189  5C5_770_54                                       13.30%    passed     92.38%
+ 190  5C3_765_29                                       10.88%    passed     98.92%
+ 191  Sebastes_rosaceus-NC_082791.1_15143_14394         9.31%    passed     97.53%
+ 192  3D11_766_166                                     27.57%    passed     93.20%
+ 193  Sebastes_elongatus-OR641516.1_15145_14396         9.31%    passed     92.72%
+ 194  Sebastes_dallii-OP035142.1_15142_14393            9.31%    passed     99.32%
+ 195  3G1_798_49                                        9.43%    passed     86.14%
+ 196  5C4_800_50                                        9.31%    passed     99.93%
+ 197  Sebastes_nebulosus-NC_082756.1_15143_14394        9.31%    passed     99.74%
+ 198  4B6_774_43                                       11.61%    passed     91.19%
+ 199  153_762_52                                       14.27%    passed     95.81%
+WARNING: 11 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                                            16.48%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: 3F7_808_59 is identical to Sebastes_jordani-NC_085188.1_15145_14396 but kept for subsequent analysis
+NOTE: Sebastes_ruberrimus-NC_085186.1_15142_14393 is identical to Sebastes_eos-OP035269.2_15142_14393 but kept for subsequent analysis
+NOTE: 4A2_798_49 is identical to 3B9_797_48 but kept for subsequent analysis
+NOTE: 4B7_768_29 is identical to 4H5_770_31 but kept for subsequent analysis
+NOTE: Sebastes_rufus-EF446472.1_1_750 is identical to 3A4_800_51 but kept for subsequent analysis
+NOTE: Sebastes_chrysomelas-EF446475.1_1_750 is identical to Sebastes_carnatus-EF446449.1_1_750 but kept for subsequent analysis
+NOTE: Sebastes_aleutianus-OR641500.1_15141_14392 is identical to Sebastes_melanostictus-NC_056778.1_15142_14393 but kept for subsequent analysis
+NOTE: 3 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: 3G3_801_52 (identical to Sebastes_jordani-NC_085188.1_15145_14396) is ignored but added at the end
+NOTE: 3F9_800_51 (identical to Sebastes_jordani-NC_085188.1_15145_14396) is ignored but added at the end
+NOTE: 4C4_766_27 (identical to 4H5_770_31) is ignored but added at the end
+Alignment was printed to 6-IQTree2.uniqueseq.phy
+
+For your convenience alignment with unique sequences printed to 6-IQTree2.uniqueseq.phy
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.012 seconds
+Perform fast likelihood tree search using GTR+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -6595.189
+Optimal log-likelihood: -6594.740
+Rate parameters:  A-C: 0.79381  A-G: 3.60471  A-T: 0.66089  C-G: 0.81598  C-T: 4.88738  G-T: 1.00000
+Base frequencies:  A: 0.306  C: 0.160  G: 0.289  T: 0.245
+Proportion of invariable sites: 0.223
+Gamma shape alpha: 0.808
+Parameters optimization took 1 rounds (0.169 sec)
+Time for fast ML tree search: 1.562 seconds
+
+NOTE: ModelFinder requires 46 MB RAM!
+ModelFinder will test up to 484 DNA models (sample size: 827 epsilon: 0.100) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  GTR+F         6864.576     397 14523.152    15259.776    16396.120
+  2  GTR+F+I       6698.840     398 14193.679    14935.744    16071.365
+  3  GTR+F+G4      6592.803     398 13981.605    14723.671    15859.292
+  4  GTR+F+I+G4    6593.171     399 13984.343    14731.884    15866.747
+  5  GTR+F+R2      6571.233     399 13940.466    14688.007    15822.870
+  6  GTR+F+R3      6568.466     401 13938.932    14697.530    15830.772
+ 14  GTR+F+I+R2    6568.874     400 13937.747    14690.799    15824.869
+ 15  GTR+F+I+R3    6568.626     402 13941.252    14705.432    15837.810
+ 27  SYM+R2        6601.281     396 13994.561    14725.780    15862.812
+ 28  SYM+R3        6597.858     398 13991.717    14733.782    15869.403
+ 36  SYM+I+R2      6598.813     397 13991.625    14728.250    15864.594
+ 49  TVM+F+R2      6576.167     398 13948.334    14690.399    15826.020
+ 50  TVM+F+R3      6572.245     400 13944.490    14697.542    15831.612
+ 58  TVM+F+I+R2    6573.467     399 13944.934    14692.475    15827.338
+ 71  TVMe+R2       6603.308     395 13996.616    14722.463    15860.149
+ 72  TVMe+R3       6600.331     397 13994.661    14731.286    15867.630
+ 80  TVMe+I+R2     6601.163     396 13994.327    14725.545    15862.577
+ 93  TIM3+F+R2     6574.366     397 13942.732    14679.356    15815.700
+ 94  TIM3+F+R3     6571.221     399 13940.442    14687.983    15822.846
+102  TIM3+F+I+R2   6572.061     398 13940.122    14682.187    15817.808
+115  TIM3e+R2      6603.907     394 13995.814    14716.324    15854.629
+116  TIM3e+R3      6600.160     396 13992.320    14723.539    15860.571
+124  TIM3e+I+R2    6601.486     395 13992.972    14718.819    15856.505
+137  TIM2+F+R2     6572.303     397 13938.606    14675.231    15811.574
+138  TIM2+F+R3     6568.876     399 13935.751    14683.292    15818.155
+146  TIM2+F+I+R2   6569.802     398 13935.603    14677.669    15813.290
+159  TIM2e+R2      6607.791     394 14003.582    14724.091    15862.397
+160  TIM2e+R3      6603.560     396 13999.121    14730.340    15867.372
+168  TIM2e+I+R2    6605.135     395 14000.270    14726.117    15863.803
+181  TIM+F+R2      6572.687     397 13939.373    14675.998    15812.342
+182  TIM+F+R3      6569.338     399 13936.676    14684.217    15819.080
+190  TIM+F+I+R2    6570.318     398 13936.636    14678.702    15814.323
+203  TIMe+R2       6608.030     394 14004.060    14724.570    15862.875
+204  TIMe+R3       6603.747     396 13999.493    14730.712    15867.744
+212  TIMe+I+R2     6605.495     395 14000.989    14726.836    15864.522
+225  TPM3u+F+R2    6579.207     396 13950.415    14681.634    15818.666
+226  TPM3u+F+R3    6574.883     398 13945.767    14687.832    15823.453
+234  TPM3u+F+I+R2  6576.633     397 13947.267    14683.891    15820.235
+247  TPM3+R2       6605.967     393 13997.934    14713.140    15852.032
+248  TPM3+R3       6602.967     395 13995.934    14721.781    15859.467
+256  TPM3+I+R2     6603.845     394 13995.691    14716.200    15854.506
+269  TPM2u+F+R2    6577.112     396 13946.223    14677.442    15814.474
+270  TPM2u+F+R3    6572.585     398 13941.171    14683.236    15818.857
+278  TPM2u+F+I+R2  6574.364     397 13942.728    14679.353    15815.697
+291  TPM2+R2       6610.224     393 14006.448    14721.654    15860.546
+292  TPM2+R3       6606.875     395 14003.750    14729.597    15867.283
+300  TPM2+I+R2     6607.878     394 14003.756    14724.265    15862.571
+313  K3Pu+F+R2     6577.511     396 13947.021    14678.240    15815.272
+314  K3Pu+F+R3     6573.026     398 13942.052    14684.117    15819.738
+322  K3Pu+F+I+R2   6574.914     397 13943.828    14680.453    15816.797
+335  K3P+R2        6610.448     393 14006.896    14722.101    15860.993
+336  K3P+R3        6607.167     395 14004.334    14730.181    15867.867
+344  K3P+I+R2      6608.229     394 14004.458    14724.967    15863.273
+357  TN+F+R2       6574.514     396 13941.028    14672.247    15809.279
+358  TN+F+R3       6571.092     398 13938.185    14680.250    15815.871
+366  TN+F+I+R2     6572.157     397 13938.314    14674.939    15811.283
+379  TNe+R2        6609.553     393 14005.107    14720.312    15859.204
+380  TNe+R3        6604.989     395 13999.978    14725.825    15863.511
+388  TNe+I+R2      6607.023     394 14002.046    14722.555    15860.861
+401  HKY+F+R2      6579.297     395 13948.594    14674.441    15812.127
+402  HKY+F+R3      6574.690     397 13943.379    14680.004    15816.348
+410  HKY+F+I+R2    6576.719     396 13945.438    14676.657    15813.689
+423  K2P+R2        6612.008     392 14008.016    14717.951    15857.395
+424  K2P+R3        6608.676     394 14005.351    14725.861    15864.167
+432  K2P+I+R2      6609.789     393 14005.579    14720.784    15859.676
+445  F81+F+R2      6834.949     394 14457.898    15178.407    16316.713
+446  F81+F+R3      6833.029     396 14458.058    15189.277    16326.309
+454  F81+F+I+R2    6833.439     395 14456.878    15182.725    16320.411
+467  JC+R2         6888.458     391 14558.916    15263.615    16403.578
+468  JC+R3         6885.961     393 14557.923    15273.128    16412.020
+476  JC+I+R2       6886.888     392 14557.775    15267.711    16407.154
+Akaike Information Criterion:           TIM2+F+I+R2
+Corrected Akaike Information Criterion: TN+F+R2
+Bayesian Information Criterion:         TN+F+R2
+Best-fit model: TN+F+R2 chosen according to BIC
+
+All model information printed to 6-IQTree2.model.gz
+CPU time for ModelFinder: 16.826 seconds (0h:0m:16s)
+Wall-clock time for ModelFinder: 16.891 seconds (0h:0m:16s)
+Generating 1000 samples for ultrafast bootstrap (seed: 641737)...
+
+NOTE: 11 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -6835.461
+2. Current log-likelihood: -6576.186
+3. Current log-likelihood: -6574.521
+Optimal log-likelihood: -6574.512
+Rate parameters:  A-C: 1.00000  A-G: 4.34762  A-T: 1.00000  C-G: 1.00000  C-T: 5.99563  G-T: 1.00000
+Base frequencies:  A: 0.306  C: 0.160  G: 0.289  T: 0.245
+Site proportion and rates:  (0.830,0.394) (0.170,3.958)
+Parameters optimization took 3 rounds (0.217 sec)
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 0.0438449 secs using 99.84% CPU
+Computing ML distances took 0.044087 sec (of wall-clock time) 0.043980 sec (of CPU time)
+Setting up auxiliary I and S matrices: done in 0.000451803 secs using 90.08% CPU
+Computing RapidNJ tree took 0.001814 sec (of wall-clock time) 0.001726 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -6700.742
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.716 second
+Computing log-likelihood of 98 initial trees ... 1.142 seconds
+Current best score: -6574.512
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -6574.499
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 2: -6571.626
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 6: -6567.386
+Iteration 10 / LogL: -6574.560 / Time: 0h:0m:27s
+Iteration 20 / LogL: -6567.892 / Time: 0h:0m:37s
+Finish initializing candidate tree set (20)
+Current best tree score: -6567.386 / CPU time: 19.381
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 24: -6566.747
+BETTER TREE FOUND at iteration 30: -6566.739
+Iteration 30 / LogL: -6566.739 / Time: 0h:0m:44s (0h:1m:35s left)
+Iteration 40 / LogL: -6570.674 / Time: 0h:0m:51s (0h:1m:19s left)
+BETTER TREE FOUND at iteration 41: -6566.736
+Iteration 50 / LogL: -6567.116 / Time: 0h:0m:59s (0h:1m:19s left)
+Log-likelihood cutoff on original alignment: -6600.170
+BETTER TREE FOUND at iteration 58: -6566.735
+Iteration 60 / LogL: -6566.743 / Time: 0h:1m:7s (0h:1m:23s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 66: -6563.951
+Iteration 70 / LogL: -6570.881 / Time: 0h:1m:16s (0h:1m:22s left)
+Iteration 80 / LogL: -6569.466 / Time: 0h:1m:23s (0h:1m:12s left)
+Iteration 90 / LogL: -6606.038 / Time: 0h:1m:30s (0h:1m:3s left)
+Iteration 100 / LogL: -6565.908 / Time: 0h:1m:38s (0h:0m:54s left)
+Log-likelihood cutoff on original alignment: -6596.980
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.984
+NOTE: UFBoot does not converge, continue at least 100 more iterations
+Iteration 110 / LogL: -6581.880 / Time: 0h:1m:45s (0h:1m:13s left)
+Iteration 120 / LogL: -6625.602 / Time: 0h:1m:54s (0h:1m:5s left)
+Iteration 130 / LogL: -6590.413 / Time: 0h:2m:2s (0h:0m:57s left)
+BETTER TREE FOUND at iteration 140: -6563.946
+Iteration 140 / LogL: -6563.946 / Time: 0h:2m:10s (0h:1m:21s left)
+BETTER TREE FOUND at iteration 142: -6563.942
+Iteration 150 / LogL: -6578.422 / Time: 0h:2m:18s (0h:1m:14s left)
+Log-likelihood cutoff on original alignment: -6596.980
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 159: -6563.673
+Iteration 160 / LogL: -6564.150 / Time: 0h:2m:25s (0h:1m:20s left)
+Iteration 170 / LogL: -6565.648 / Time: 0h:2m:33s (0h:1m:11s left)
+BETTER TREE FOUND at iteration 173: -6563.663
+BETTER TREE FOUND at iteration 177: -6563.660
+Iteration 180 / LogL: -6572.040 / Time: 0h:2m:39s (0h:1m:17s left)
+Iteration 190 / LogL: -6565.733 / Time: 0h:2m:47s (0h:1m:9s left)
+Iteration 200 / LogL: -6566.057 / Time: 0h:2m:55s (0h:1m:1s left)
+Log-likelihood cutoff on original alignment: -6596.947
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.991
+Iteration 210 / LogL: -6563.864 / Time: 0h:3m:2s (0h:1m:11s left)
+Iteration 220 / LogL: -6569.661 / Time: 0h:3m:10s (0h:1m:3s left)
+Iteration 230 / LogL: -6600.036 / Time: 0h:3m:18s (0h:0m:55s left)
+Iteration 240 / LogL: -6566.040 / Time: 0h:3m:27s (0h:0m:47s left)
+Iteration 250 / LogL: -6587.321 / Time: 0h:3m:34s (0h:0m:39s left)
+Log-likelihood cutoff on original alignment: -6596.947
+Iteration 260 / LogL: -6569.215 / Time: 0h:3m:41s (0h:0m:31s left)
+Iteration 270 / LogL: -6570.385 / Time: 0h:3m:48s (0h:0m:23s left)
+TREE SEARCH COMPLETED AFTER 278 ITERATIONS / Time: 0h:3m:54s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -6563.660
+Optimal log-likelihood: -6563.657
+Rate parameters:  A-C: 1.00000  A-G: 4.28011  A-T: 1.00000  C-G: 1.00000  C-T: 6.04946  G-T: 1.00000
+Base frequencies:  A: 0.306  C: 0.160  G: 0.289  T: 0.245
+Site proportion and rates:  (0.828,0.390) (0.172,3.930)
+Parameters optimization took 1 rounds (0.052 sec)
+BEST SCORE FOUND : -6563.657
+
+Testing tree branches by SH-like aLRT with 1000 replicates...
+1.200 sec.
+Creating bootstrap support values...
+Split supports printed to NEXUS file 6-IQTree2.splits.nex
+Total tree length: 1.908
+
+Total number of iterations: 278
+CPU time used for tree search: 216.954 sec (0h:3m:36s)
+Wall-clock time used for tree search: 217.258 sec (0h:3m:37s)
+Total CPU time used: 236.030 sec (0h:3m:56s)
+Total wall-clock time used: 236.428 sec (0h:3m:56s)
+
+Computing bootstrap consensus tree...
+Reading input file 6-IQTree2.splits.nex...
+196 taxa and 5231 splits.
+Consensus tree written to 6-IQTree2.contree
+Reading input trees file 6-IQTree2.contree
+Log-likelihood of consensus tree: -6566.617
+
+Analysis results written to: 
+  IQ-TREE report:                6-IQTree2.iqtree
+  Maximum-likelihood tree:       6-IQTree2.treefile
+  Likelihood distances:          6-IQTree2.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          6-IQTree2.splits.nex
+  Consensus tree:                6-IQTree2.contree
+  Screen log file:               6-IQTree2.log
+
+Date and Time: Sun Nov 24 20:10:51 2024

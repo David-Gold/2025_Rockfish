@@ -1,0 +1,337 @@
+# Extract all .ab1 files
+
+##############
+# Prepare data
+##############
+
+for i in 1-Raw_Data/Plate*/*.ab1; do
+ cp $i ./; done
+ 
+for i in 1-Raw_Data/"Test Batch"/*.ab1; do
+ cp "$i" ./; done
+ 
+#######################################
+# Convert data to Fastq with Biopython
+#######################################
+
+python3 # v.3.9.6
+import os
+from Bio import SeqIO
+
+# Define the input and output directory paths
+input_dir = "./"
+output_dir = "./"
+
+# Define the file format to read
+file_format = "abi"
+
+# Loop through all ABI files in the input directory
+for file_name in os.listdir(input_dir):
+    if file_name.endswith(".ab1"):
+        # Construct the input and output file paths
+        input_file = os.path.join(input_dir, file_name)
+        output_file = os.path.join(output_dir, "{}.fastq".format(os.path.splitext(file_name)[0]))
+        # Open the input ABI file and convert it to Fastq format using SeqIO.write() function
+        with open(input_file, "rb") as handle:
+            SeqIO.write(SeqIO.parse(handle, file_format), output_file, "fastq")
+
+# Exit program
+quit()
+
+# Clean up
+rm *ab1
+
+########################
+# Clean and merge reads
+########################
+
+# Create forward and reverse lists
+cat *GluRF2.fastq > forward.fq
+cat *CB3RF2.fastq > reverse.fq
+rm *fastq
+
+# Remove primer labels from fastq headers
+sed -i '' 's/-GluRF2//g' forward.fq
+sed -i '' 's/-CB3RF2//g' reverse.fq
+
+# Pair forward and reverse reads with BBTools (v.39.13)
+bbmerge.sh \
+qtrim=t \
+in1=forward.fq in2=reverse.fq \
+out=output_merged.fq
+
+# Convert sequences to fasta with seqtk (v.1.4), and reverse complement reverse reads
+seqtk seq -a forward.fq > forward.fa
+seqtk seq -ar reverse.fq > reverse.fa
+seqtk seq -a output_merged.fq > output_merged.fa
+
+# Combine all sequences
+cat *fa > output_all.fasta
+
+#########
+# Cleanup
+#########
+rm *fq
+rm *fa
+
+
+############################################################################
+# keep only the longest sequence for each set of sequences with the same ID
+############################################################################
+
+python3 # v.3.9.6
+from Bio import SeqIO
+
+def filter_longest_sequences(fasta_file):
+    # Read the FASTA file and store sequences by ID
+    sequences = {}
+    for record in SeqIO.parse(fasta_file, "fasta"):
+        seq_id = record.id
+        sequence = str(record.seq)
+        if seq_id in sequences:
+            # If sequence ID already exists, compare lengths and keep the longest
+            if len(sequence) > len(sequences[seq_id]):
+                sequences[seq_id] = sequence
+        else:
+            sequences[seq_id] = sequence
+    # Write the filtered sequences to a new FASTA file
+    output_file = "Rockfish_filtered.fasta"
+    with open(output_file, "w") as f:
+        for seq_id, sequence in sequences.items():
+            f.write(f">{seq_id}\n{sequence}\n")
+    print(f"Filtered sequences written to {output_file}.")
+
+# Define input and execute
+fasta_file = "output_all.fasta"
+filter_longest_sequences(fasta_file)
+
+# Quit Python3
+quit()
+
+
+# Clean up
+mv Rockfish_filtered.fasta 2-Rockfish_filtered.fasta
+rm output_all.fasta
+
+################################################
+# Collect cytB reads from known species in NCBI
+################################################
+
+mkdir temp
+
+python3
+from Bio import Entrez, SeqIO
+
+# Provide your email address to NCBI
+Entrez.email = "dgold@ucdavis.edu"
+
+# Specify the list of species
+species_list = [
+    "Artedius corallinus",
+    "Artedius lateralis",
+    "Ophiodon elongatus",
+    "Scorpaena guttata",
+    "Sebastes aleutianus",
+    "Sebastes alutus",
+    "Sebastes atrovirens",
+    "Sebastes auriculatus",
+    "Sebastes aurora",
+    "Sebastes babcocki",
+    "Sebastes borealis",
+    "Sebastes brevispinis",
+    "Sebastes carnatus",
+    "Sebastes caurinus",
+    "Sebastes chlorostictus",
+    "Sebastes chrysomelas",
+    "Sebastes ciliatus",
+    "Sebastes constellatus",
+    "Sebastes crameri",
+    "Sebastes dallii",
+    "Sebastes diaconus",
+    "Sebastes diploproa",
+    "Sebastes elongatus",
+    "Sebastes emphaeus",
+    "Sebastes ensifer",
+    "Sebastes entomelas",
+    "Sebastes eos",
+    "Sebastes flavidus",
+    "Sebastes gilli",
+    "Sebastes goodei",
+    "Sebastes helvomaculatus",
+    "Sebastes hopkinsi",
+    "Sebastes jordani",
+    "Sebastes lentiginosus",
+    "Sebastes levis",
+    "Sebastes macdonaldi",
+    "Sebastes maliger",
+    "Sebastes melanops",
+    "Sebastes melanostictus",
+    "Sebastes melanostomus",
+    "Sebastes miniatus",
+    "Sebastes mystinus",
+    "Sebastes nebulosus",
+    "Sebastes nigrocinctus",
+    "Sebastes ovalis",
+    "Sebastes paucispinis",
+    "Sebastes phillipsi",
+    "Sebastes pinniger",
+    "Sebastes proriger",
+    "Sebastes rastrelliger",
+    "Sebastes reedi",
+    "Sebastes rosaceus",
+    "Sebastes rosenblatti",
+    "Sebastes ruberrimus",
+    "Sebastes rubrivinctus",
+    "Sebastes rufus",
+    "Sebastes saxicola",
+    "Sebastes semicinctus",
+    "Sebastes serranoides",
+    "Sebastes serriceps",
+    "Sebastes umbrosus",
+    "Sebastes variegatus",
+    "Sebastes wilsoni",
+    "Sebastes zacentrus",
+]
+
+# Specify the output directory to save the gene sequences
+output_dir = "temp"
+
+# Iterate over the species list
+for species_name in species_list:
+    print(f"Retrieving CytB gene sequence for {species_name}...")
+    try:
+        # Search NCBI Nucleotide database for the species and CytB gene
+        search_term = f"{species_name}[Organism] AND cytb[gene]"
+        handle = Entrez.esearch(db="nucleotide", term=search_term, retmax=1)
+        record = Entrez.read(handle)
+        handle.close()       
+        # Retrieve the sequence for the top result
+        if record["IdList"]:
+            sequence_id = record["IdList"][0]
+            handle = Entrez.efetch(db="nucleotide", id=sequence_id, rettype="fasta", retmode="text")
+            sequence = SeqIO.read(handle, "fasta")
+            handle.close()          
+            # Save the sequence to a FASTA file
+            file_path = f"{output_dir}/{species_name.replace(' ', '_')}.fasta"
+            SeqIO.write(sequence, file_path, "fasta")            
+            print(f"CytB gene sequence for {species_name} retrieved and saved.")
+            print("")
+        else:
+            print(f"No CytB gene sequence found for {species_name}.")
+            print("")   
+    except Exception as e:
+        print(f"An error occurred while retrieving CytB gene sequence for {species_name}:")
+        print(str(e))
+        print("")
+        
+# Exit Python
+quit()
+
+########################
+# Modify transcript IDs
+########################
+
+cd temp
+
+# Delete all info in header after first space
+sed -i '' '1s/ .*//' *.fasta
+
+# Add species name to headers
+for file in *.fasta; do
+  filename=$(basename "$file")
+  filename="${filename%.*}"
+  sed -i '' "1s/^>/>$filename-/" "$file"
+done
+
+# collect sequences and cleanup
+cat *.fasta > Known_Seqs.fasta
+mv Known_Seqs.fasta ../Known_Seqs.fasta
+cd ../
+cat Known_Seqs.fasta 2-Rockfish_filtered.fasta > 3-All_Reads.fasta
+
+# Clean up
+rm -r temp
+rm Known_Seqs.fasta
+
+###################################################
+# Identify CytB sequences using BLAST and SAMTOOLS (v.1.21)
+###################################################
+ 
+# Create query
+
+echo ">Sebastes_carnatus-EF446449.1
+GGGTCTCCTAACAGATTGGGTGAGAATAAAGCTAGACATGTAAGGGCAATGACAAGTACT
+GCAAATCCTAGTAAGTCTTTGTATGAGAAGTAGGGGTGGAAGCTTATTTTATCTGCATCT
+GAGTTTAGGCCGAGGGGGTTATTTGACCCTGTTTGATGGAGGAAAAGGAGGTGAACTATG
+GTTGCGCCTGCAATTACAAAGGGGAATAAAAAGTGGAAAGCAAAGAATCGGGTAAGGGTT
+GCATTGTCTACTGAGAATCCACCTCAAATTCATTGAACAAGGGCGTTACCTACGTAGGGT
+ACTGCAGAGAGCAGGTTGGTGATAACGGTGGCACCTCAAAAGGACATTTGGCCTCAGGGT
+AATACGTAACCAACGAAAGCAGTTATTATAACTAGAAGTAATAGAACTACCCCGATGTTT
+CATGTTTCTTTATAGAGGTATGAGCCGTAGTAAAGTCCACGGCCAATGTGGGCATAGATG
+CACACAAAGAAGAAGGATGCACCGTTGGCATGAAGGTTTCGGATGAGTCATCCGTAATTT
+ACGTCTCGGCAAATATGAGCAACGGAAGAAAAAGCTGTAGCGATATCAGAGGTGTAGTGT
+ATGGCTAAAAATAGTCCTGTGAGGATTTGAATAATTAAGCAGAGTCCTAGGAGAGAGCCG
+AAGTTTCATCACACTGAAATATTTGAGGGGGCGGGGAGGTCAACTAGGGCATTGTTTGCG
+ATTTTGAGGAGGGGATGTGTCTTTCGTAGA" > query.fasta
+
+# Make BLAST database
+makeblastdb -in 3-All_Reads.fasta -dbtype nucl -out All_Reads
+# Perform BLAST search
+blastn -query query.fasta -db All_Reads -outfmt 6 -out 4-All_Reads.BLAST_hits.txt
+
+#################################
+# Extract regions using BioPython and Bio
+################################# 
+
+Python3
+from Bio import SeqIO
+from Bio.Seq import Seq
+
+# Input files
+blast_output = "4-All_Reads.BLAST_hits.txt"
+multifasta_file = "3-All_Reads.fasta"
+output_file = "4-All_Reads.BLAST_hits.fasta"
+
+# Parse the multifasta file into a dictionary
+sequences = SeqIO.to_dict(SeqIO.parse(multifasta_file, "fasta"))
+
+# Open the BLAST output
+with open(blast_output, "r") as blast_results, open(output_file, "w") as output:
+    for line in blast_results:
+        # Split the BLAST result line
+        cols = line.strip().split("\t")
+        subject_id, s_start, s_end = cols[1], int(cols[8]), int(cols[9])   
+        # Get the corresponding sequence from the multifasta file
+        seq_record = sequences.get(subject_id)
+        if seq_record:
+            # Extract the aligned region
+            if s_start < s_end:
+                aligned_seq = seq_record.seq[s_start-1:s_end]  # 0-based indexing
+            else:
+                aligned_seq = seq_record.seq[s_end-1:s_start].reverse_complement() 
+            # Write the aligned region to the output file
+            output.write(f">{subject_id}_{s_start}_{s_end}\n{aligned_seq}\n")
+
+quit()
+
+# Cleanup
+
+rm All_Reads*
+rm query.fasta
+
+#############################################
+# Add final sequences, align with muscle (v.5.1.0) and build tree with IQTree2 (v.2.3.6)
+#############################################
+
+# Several species were lost during QC (S.chrysomelas and S.carnatus) or severley truncated (S.atrovirens and S.ruberrimus)
+	# Sequences were manually added back in by using NCBI BLAST with query "Sebastes_rosenblatti-AF031511.1:24-828" from file "Rockfish_Vetted_Seqs.Domains.fasta"
+	# Also added a few more outgroups by using NCBI BLAST with query "Sebastes_rosenblatti-AF031511.1:24-828" and database "NOT Sebastes"
+
+# Align with MUSCLE (v.5.1.0)
+muscle -align 4-All_Reads.BLAST_hits.fasta -output 5-All_Reads.Muscle_Alignment.fasta
+
+# Generate Tree with IQTree2 (v.2.3.6)
+iqtree2 -s 5-All_Reads.Muscle_Alignment.fasta -alrt 1000 -bb 1000 --prefix 6-IQTree2
+
+# Rename final tree
+mv 6-IQTree2.contree 7-IQTree2.contree.tree
