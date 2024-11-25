@@ -1,8 +1,8 @@
 # 2025_Rockfish
  
-See file 0_Code.txt for information.
+See file 0_Code.txt to get started.
 
-Programs used:
+# Programs used:
 
 BLAST -- installed through homebrew
 
@@ -15,4 +15,4 @@ python3 (v.3.9.6)
 SAMTOOLS (v.1.21) -- installed through homebrew
 
 
-Tested on Mac v.14.7.1., Apple M3 Pro Chip.
+#### Tested on Mac v.14.7.1., Apple M3 Pro Chip.
