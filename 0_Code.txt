@@ -68,12 +68,9 @@ seqtk seq -a output_merged.fq > output_merged.fa
 # Combine all sequences
 cat *fa > output_all.fasta
 
-#########
 # Cleanup
-#########
 rm *fq
 rm *fa
-
 
 ############################################################################
 # keep only the longest sequence for each set of sequences with the same ID
@@ -107,7 +104,6 @@ filter_longest_sequences(fasta_file)
 
 # Quit Python3
 quit()
-
 
 # Clean up
 mv Rockfish_filtered.fasta 2-Rockfish_filtered.fasta
@@ -253,9 +249,9 @@ cat Known_Seqs.fasta 2-Rockfish_filtered.fasta > 3-All_Reads.fasta
 rm -r temp
 rm Known_Seqs.fasta
 
-###################################################
-# Identify CytB sequences using BLAST and SAMTOOLS (v.1.21)
-###################################################
+#################################################
+# Identify CytB sequences using BLAST (v.2.16.0)
+#################################################
  
 # Create query
 
@@ -279,9 +275,9 @@ makeblastdb -in 3-All_Reads.fasta -dbtype nucl -out All_Reads
 # Perform BLAST search
 blastn -query query.fasta -db All_Reads -outfmt 6 -out 4-All_Reads.BLAST_hits.txt
 
-#################################
+##########################################
 # Extract regions using BioPython and Bio
-################################# 
+##########################################
 
 Python3
 from Bio import SeqIO
@@ -319,9 +315,9 @@ quit()
 rm All_Reads*
 rm query.fasta
 
-#############################################
+#########################################################################################
 # Add final sequences, align with muscle (v.5.1.0) and build tree with IQTree2 (v.2.3.6)
-#############################################
+#########################################################################################
 
 # Several species were lost during QC (S.chrysomelas and S.carnatus) or severley truncated (S.atrovirens and S.ruberrimus)
 	# Sequences were manually added back in by using NCBI BLAST with query "Sebastes_rosenblatti-AF031511.1:24-828" from file "Rockfish_Vetted_Seqs.Domains.fasta"
